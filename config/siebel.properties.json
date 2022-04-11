@@ -1,0 +1,12 @@
+{
+  "siebel": {
+    "connection": {
+      "string": "Siebel://sblx86test:2321/SBLX86CRM/eCommunicationsObjMgr_enu"
+    },
+    "user": {
+      "name": "SADMIN",
+      "password": "Qwerty123",
+      "language": "enu"
+    }
+  }
+}

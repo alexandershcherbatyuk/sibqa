@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="sibqa:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/sibqa_jar</output-path>
+    <root id="root">
+      <element id="archive" name="sibqa.jar">
+        <element id="module-output" name="sibqa" />
+      </element>
+      <element id="library" level="project" name="Lib" />
+    </root>
+  </artifact>
+</component>
