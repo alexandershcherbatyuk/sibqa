@@ -24,7 +24,7 @@ public class SBQPrototype {
 
     protected String cfgSiebelUserLanguage = null;
 
-    protected SiebelDataBean sbqDataBean = null;
+    protected SiebelDataBean sbqDataBean;
 
     //Variables public
 
@@ -50,7 +50,9 @@ public class SBQPrototype {
     //Methods private
     //Methods protected
     //Methods Public
-
+    public SBQPrototype(){
+        sbqDataBean = new SiebelDataBean();
+    }
     /*
     * Method to connect to Siebel server
     * */
@@ -60,7 +62,6 @@ public class SBQPrototype {
 
         try {
             parseSiebelProperties();
-
             sbqDataBean.login(cfgSiebelConnectionString, cfgSiebelUserName, cfgSiebelUserPassword, cfgSiebelUserLanguage);
             bResult = true;
 
@@ -79,7 +80,7 @@ public class SBQPrototype {
 
         try {
             sbqDataBean.logoff();
-            sbqDataBean = null;
+          //  sbqDataBean = null; //Destroys a SiebelDataBean instance.
             bResult = true;
 
         }catch (SiebelException e) {
