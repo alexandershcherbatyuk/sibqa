@@ -6,7 +6,7 @@ import com.siebel.data.SiebelException;
 
 public class SBQBusinessComponent extends SBQPrototype {
 
-    private String getFieldData(String sBusObj, String sBusComp, String sField, String sId) {
+    public String getFieldData(String sBusObj, String sBusComp, String sField, String sId) {
         SiebelBusObject busObject;
         SiebelBusComp busComp;
 
@@ -38,6 +38,7 @@ public class SBQBusinessComponent extends SBQPrototype {
         boolean isConnected;
         boolean isDisconnected;
         String sFieldValue;
+        String sFieldValueStatus;
 
         SBQBusinessComponent demo = new SBQBusinessComponent();
         isConnected = demo.connectToSiebel();
@@ -46,6 +47,8 @@ public class SBQBusinessComponent extends SBQPrototype {
 
         sFieldValue = demo.getFieldData("Account", "Account", "Name", "1-1B2H");
         System.out.println("sFieldValue: " + sFieldValue);
+        sFieldValueStatus = demo.getFieldData("Account", "Account", "Location", "1-1B2H");
+        System.out.println("sFieldValue: " + sFieldValueStatus);
 
         isDisconnected = demo.disconnectFromSiebel();
         System.out.printf("%s %20s%n", "Siebel server disconnected", "["+isDisconnected+"]");
