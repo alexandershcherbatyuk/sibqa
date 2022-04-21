@@ -6,7 +6,7 @@ import com.siebel.data.SiebelException;
 
 public class SBQBusinessComponent extends SBQPrototype {
 
-    public String getFieldData(String sBusObj, String sBusComp, String sField, String sId) {
+    public String getFieldData(String sBusObj, String sBusComp, String valueField, String queryField, String queryValue) {
         SiebelBusObject busObject;
         SiebelBusComp busComp;
 
@@ -17,12 +17,12 @@ public class SBQBusinessComponent extends SBQPrototype {
             busComp = busObject.getBusComp(sBusComp);
 
             busComp.setViewMode(3);
-            busComp.activateField(sField);
+            busComp.activateField(valueField);
             busComp.clearToQuery();
-            busComp.setSearchSpec("Id", sId);
+            busComp.setSearchSpec(queryField, queryValue);
             busComp.executeQuery(false);
             if (busComp.firstRecord()) {
-                sResult = busComp.getFieldValue(sField);
+                sResult = busComp.getFieldValue(valueField);
             }
 
         }catch (SiebelException e) {
@@ -45,10 +45,8 @@ public class SBQBusinessComponent extends SBQPrototype {
 
         System.out.printf("%s %23s%n", "Siebel server connected", "["+isConnected+"]");
 
-        sFieldValue = demo.getFieldData("Account", "Account", "Name", "1-1B2H");
+        sFieldValue = demo.getFieldData("Account", "Account", "Name", "Id", "1-1B2H");
         System.out.println("sFieldValue: " + sFieldValue);
-        sFieldValueStatus = demo.getFieldData("Account", "Account", "Location", "1-1B2H");
-        System.out.println("sFieldValue: " + sFieldValueStatus);
 
         isDisconnected = demo.disconnectFromSiebel();
         System.out.printf("%s %20s%n", "Siebel server disconnected", "["+isDisconnected+"]");
