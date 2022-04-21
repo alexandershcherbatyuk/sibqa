@@ -26,7 +26,7 @@ public class SBQBusinessComponent extends SBQPrototype {
             }
 
         }catch (SiebelException e) {
-            System.out.println(e.getErrorMessage());
+            System.out.println("[SBQBusinessComponent] "+e.getErrorMessage());
         }
         return sResult;
     }

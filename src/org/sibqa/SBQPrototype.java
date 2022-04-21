@@ -43,7 +43,7 @@ public class SBQPrototype {
 
         }catch (Exception e)
         {
-            System.out.println(e.toString());
+            System.out.println("[parseSiebelProperties]"+e.toString());
         }
 
     }
@@ -66,7 +66,7 @@ public class SBQPrototype {
             bResult = true;
 
         }catch (SiebelException e) {
-            System.out.println(e.getErrorMessage());
+            System.out.println("[connectToSiebel] "+e.getErrorMessage());
             bResult = false;
         }
 
@@ -84,7 +84,7 @@ public class SBQPrototype {
             bResult = true;
 
         }catch (SiebelException e) {
-            System.out.println(e.getErrorMessage());
+            System.out.println("[disconnectFromSiebel] "+e.getErrorMessage());
             bResult = false;
         }
 
